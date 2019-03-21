@@ -111,6 +111,7 @@ def main(argv=None):
 
                 with open(os.path.join(FLAGS.output_path, os.path.splitext(os.path.basename(im_fn))[0]) + ".txt",
                           "w") as f:
+                    f.writelines(str(round(rh,4))+","+str(round(rw,4))+"\r\n")
                     for i, box in enumerate(boxes):
                         line = ",".join(str(box[k]) for k in range(8))
                         line += "," + str(scores[i]) + "\r\n"
